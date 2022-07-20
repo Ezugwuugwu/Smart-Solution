@@ -20,4 +20,5 @@ from TechnicalAssessmentApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include('TechnicalAssessmentApp.urls')),
+    path('authors/', include('TechnicalAssessmentApp.urls')),
 ]

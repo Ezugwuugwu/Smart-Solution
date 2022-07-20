@@ -1,5 +1,5 @@
 from django import forms
-from .models import Book
+from .models import Book, Author
 
 
 class Booksform(forms.ModelForm):
@@ -9,3 +9,9 @@ class Booksform(forms.ModelForm):
 
         # u can also do
         # fields = ('Book name', 'isbn', 'author'), just to select fields
+
+
+class Authorform(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = '__all__'

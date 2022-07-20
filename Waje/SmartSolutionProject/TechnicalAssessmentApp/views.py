@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from TechnicalAssessmentApp.forms import Booksform
-from .models import Book
+from TechnicalAssessmentApp.authorForms import AuthorForm
+
+from .models import Book, Author
 
 
 def list_of_books(request):
@@ -31,3 +33,33 @@ def books_delete(request, id):
     book = Book.objects.get(pk=id)
     book.delete()
     return redirect('/books/list')
+
+
+def list_of_authors(request):
+    context = {'list_of_authors': Author.objects.all()}
+    return render(request, "AuthorList.html", context)
+
+
+def author_form(request, id=0):
+    if request.method == "GET":
+        if id == 0:
+            authorForm = AuthorForm()
+        else:
+            author = Author.objects.filter(pk=id)
+            authorForm = AuthorForm(instance=author)
+        return render(request, "AuthorRegister.html", {'form': authorForm})
+    else:
+        if id == 0:
+            authorForm = AuthorForm(request.POST)
+        else:
+            author = Author.objects.filter(pk=id)
+            authorForm = AuthorForm(request.POST, instance=author)
+        if authorForm.is_valid():
+            authorForm.save()
+            return redirect('/authors/authorlist')
+
+
+def author_delete(id):
+    author = Author.objects.get(pk=id)
+    author.delete()
+    return redirect('/authors/authorlist')

@@ -4,12 +4,16 @@
 <table class="table table-borderless">
     <thead class="border-bottom font-weight-bold">
         <tr style="color: blue">
-             <a style="background-color: green; color: white" href="{% url 'book_register' %}" class="btn btn btn-outline-success">
-                        <i class="fas fa-plus"></i> Register new Book
-                    </a>
+            <h1 class="display-4">Books Registration Portal</h1>
+            <div style="display: flex; justify-content: space-between">
+                 <a style="background-color: green; color: white" href="{% url 'book_register' %}" class="btn btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Register new Book
+                 </a>
+                 <a style="background-color: green; color: white" href="{% url 'author_register' %}" class="btn btn btn-outline-success">
+                   <i class="fas fa-plus"></i> Register new Author
+                 </a>
+            </div>
             <td>Book Name</td>
-            <td>ISBN</td>
-            <td>Author</td>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +22,8 @@
                 <td>{{book.book_name}}</td>
                 <td>{{book.isbn}}</td>
                 <td>{{book.author}}</td>
+                <td>{{book.id}}</td>
+
                 <td>
                     <a href="{% url 'book_update' book.id %}" class="btn text-secondary px-0">
                         <i style="color: black" class="far fa-edit fa-lg "></i>

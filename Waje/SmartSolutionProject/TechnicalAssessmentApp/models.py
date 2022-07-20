@@ -5,8 +5,9 @@ class Author(models.Model):
     first_name = models.TextField(max_length=10)
     last_name = models.TextField(max_length=10)
 
-    # def __str__(self):
-    #     return self.first_name + " " + self.last_name
+# i just had to do this below to see the names
+    def __str__(self):
+        return self.first_name + " " + self.last_name
 
 
 class Book(models.Model):
