@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from TechnicalAssessmentApp.forms import Booksform
-from TechnicalAssessmentApp.authorForms import AuthorForm
 
+from TechnicalAssessmentApp.authorForms import AuthorForm
+from TechnicalAssessmentApp.forms import Booksform
 from .models import Book, Author
 
 
