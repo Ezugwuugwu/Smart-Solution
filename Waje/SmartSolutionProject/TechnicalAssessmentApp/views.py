@@ -45,21 +45,29 @@ def author_form(request, id=0):
         if id == 0:
             authorForm = AuthorForm()
         else:
-            author = Author.objects.filter(pk=id)
+            author = Author.objects.get(pk=id)
             authorForm = AuthorForm(instance=author)
         return render(request, "AuthorRegister.html", {'form': authorForm})
     else:
         if id == 0:
             authorForm = AuthorForm(request.POST)
         else:
-            author = Author.objects.filter(pk=id)
+            author = Author.objects.get(pk=id)
             authorForm = AuthorForm(request.POST, instance=author)
         if authorForm.is_valid():
             authorForm.save()
             return redirect('/authors/authorlist')
 
 
-def author_delete(id):
+def author_delete(request, id):
     author = Author.objects.get(pk=id)
     author.delete()
     return redirect('/authors/authorlist')
+
+
+def retrieve_project(request, id):
+    if Book.objects.filter(pk=id).exists():
+        project = Book.objects.get(pk=id)
+    else:
+        project = {}
+    return render(request, "Book_details.html", {'project': project})

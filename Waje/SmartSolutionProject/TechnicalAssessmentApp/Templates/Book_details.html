@@ -3,9 +3,9 @@
 {% block page_content %}
 <div class="container">
     <div class="row my-5"; >
-{% if author %}
+{% if project %}
         <div class="col-md-6" >
-                <img style=" height: 200px" src="{{ author.book_name}}" alt="project Image">
+                <img style=" height: 200px" src="{{ project.book_name}}" alt="project Image">
         </div>
 
           <div class="col-md-6" style="
@@ -19,7 +19,7 @@
                     -webkit-column-rule: 12px double #000000;
                     -moz-column-rule: 12px double #000000; ">
                 <h4>Details:</h4>
-                <small>{{author.book_name}</small>
+                <small>{{project.book_name}</small>
                 <br>
         </div>
 
@@ -30,9 +30,9 @@
                 -webkit-box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);
                 -moz-box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);">
                 <h3>More Details</h3>
-                <p> <b>Book ISBN:</b>{{author.book_name}} </p>
-                <p> <b>Item Title:</b> {{author.isbn}} </p>
-                <p><b>Author's ID:</b> {{author.author}}</p>
+                <p> <b>Book ISBN:</b>{{project.book_name}} </p>
+                <p> <b>Item Title:</b> {{project.isbn}} </p>
+                <p><b>Author's ID:</b> {{project.author}}</p>
         </div>
         {% else %}
         <h1>Nothing to Display</h1>
