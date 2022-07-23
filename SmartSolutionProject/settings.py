@@ -61,7 +61,7 @@ ROOT_URLCONF = 'SmartSolutionProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'TechnicalAssessmentApp/Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,7 +75,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'SmartSolutionProject.wsgi.application'
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
