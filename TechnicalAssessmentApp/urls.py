@@ -4,7 +4,6 @@ from TechnicalAssessmentApp import views
 
 urlpatterns = [
     path('', views.list_of_books, name='list_of_books'),
-    path('/', views.list_of_books, name='list_of_books'),
     path('post', views.books_form, name='book_register'),
     path('delete_book/<int:id>/', views.books_delete, name='book_delete'),
     path('list/', views.list_of_books, name='list_of_books'),
