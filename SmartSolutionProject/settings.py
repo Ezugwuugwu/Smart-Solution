@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'SmartSolutionProject.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'ec2-54-161-255-125.compute-1.amazonaws.com',
         'USER': 'vedskygdyoannb',
@@ -89,7 +89,6 @@ DATABASES = {
         'NAME': 'd1kge1qbqt0tk',
 
     }
-
 }
 
 # Password validation
