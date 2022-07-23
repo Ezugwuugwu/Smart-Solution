@@ -20,7 +20,6 @@ pymysql.install_as_MySQLdb()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -43,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'TechnicalAssessmentApp',
-   ]
+]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -77,19 +76,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'SmartSolutionProject.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'BooksDb',
+        'HOST': 'ec2-54-161-255-125.compute-1.amazonaws.com',
+        'USER': 'vedskygdyoannb',
+        'PORT': '5432',
+        'PASSWORD': '0b161634b2e2bae01e059a2b281714537dd79de16e70622d29c1d482336ec55c',
+        'URI': 'postgres://vedskygdyoannb:0b161634b2e2bae01e059a2b281714537dd79de16e70622d29c1d482336ec55c@ec2-54-161-255-125.compute-1.amazonaws.com:5432/d1kge1qbqt0tk',
+        'NAME': 'd1kge1qbqt0tk',
 
     }
 
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -109,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -120,7 +121,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
