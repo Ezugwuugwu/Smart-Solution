@@ -85,9 +85,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'BooksDb',
-        'USER': 'postgres',
-        'PASSWORD': 'NewTonjoel91',
-        'HOST': 'localhost',
 
     }
 
