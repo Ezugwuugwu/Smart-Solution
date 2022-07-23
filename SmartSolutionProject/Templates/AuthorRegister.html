@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block page_content %}
+
+<form action="" autocomplete="off" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <div class="row">
+        <div class="col-md-8">
+            <button class="btn btn-success btn-block btn-lg" style="margin-top: 5px" type="submit"><i
+                    class="fa-solid fa-database"></i>Submit
+            </button>
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-secondary btn-block btn-lg" href="{% url 'list_of_authors' %}">
+                <i class="fas fa-stream"></i> View Authors
+            </a>
+        </div>
+    </div>
+</form>
+{% endblock %}

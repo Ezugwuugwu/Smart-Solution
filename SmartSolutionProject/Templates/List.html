@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<style>
+    .man {
+        color: white;
+        font-weight: bold;
+    }
+
+    .man :hover {
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+    <tr style="color: blue">
+        <h1 class="display-4">Books Registration Portal</h1>
+        <div style="display: flex; justify-content: space-between">
+            <a class="btn btn btn-outline-success" href="{% url 'book_register' %}"
+               style="background-color: green; color: white">
+                <i class="fas fa-plus"></i> Register new Book
+            </a>
+            <a class="btn btn btn-outline-success" href="{% url 'author_register' %}"
+               style="background-color: green; color: white">
+                <i class="fas fa-plus"></i> Register new Author
+            </a>
+        </div>
+        <td>Book Name</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in list_of_books %}
+    <tr class="man">
+        <a href="{{ book.id }}">
+            <td>{{book.book_name}}</td>
+        </a>
+
+        <td>
+            <a class="btn text-secondary px-0" href="{% url 'book_update' book.id %}">
+                <i class="far fa-edit fa-lg " style="color: black"></i>
+            </a>
+            <form action="{% url 'book_delete' book.id %}" class="d-inline" method="post">
+                {% csrf_token %}
+                <button class="btn" type="submit">
+                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                </button>
+            </form>
+        </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+
+
+    <tbody>
+    {% for book in project %}
+    <tr class="man">
+        <a href="{{ book.id }}">
+            {{book.book_name}}
+        </a>
+
+        <td>
+            <a class="btn text-secondary px-0" href="{% url 'book_update' book.id %}">
+                <i class="far fa-edit fa-lg " style="color: black"></i>
+            </a>
+            <form action="{% url 'book_delete' book.id %}" class="d-inline" method="post">
+                {% csrf_token %}
+                <button class="btn" type="submit">
+                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                </button>
+            </form>
+        </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
