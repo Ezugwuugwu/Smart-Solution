@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'SmartSolutionProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'BooksDb',
+        'NAME': BASE_DIR / 'BooksDb',
 
     }
 
