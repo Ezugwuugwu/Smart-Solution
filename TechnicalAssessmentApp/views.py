@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from TechnicalAssessmentApp.authorForms import AuthorForm
 from TechnicalAssessmentApp.forms import Booksform
 from .models import Book, Author
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import requires_csrf_token
 
 
 def list_of_books(request):
@@ -10,6 +12,8 @@ def list_of_books(request):
     return render(request, "List.html", context)
 
 
+@csrf_exempt
+@requires_csrf_token
 def books_form(request, id=0):
     if request.method == "GET":
         if id == 0:
@@ -40,6 +44,8 @@ def list_of_authors(request):
     return render(request, "AuthorList.html", context)
 
 
+@csrf_exempt
+@requires_csrf_token
 def author_form(request, id=0):
     if request.method == "GET":
         if id == 0:
