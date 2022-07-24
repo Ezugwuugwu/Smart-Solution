@@ -1,20 +1,74 @@
 {% extends "base.html" %}
 
-
 {% block page_content %}
+<style>
+    .container{
+        background-color: #306754;
+        width: 100%;
+        border: solid;
+        border-color: white;
+        margin-bottom: 2rem;
+        box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+    }
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p}}
-    <div class="row">
-        <div class="col-md-8">
-            <button type="submit" class="btn btn-success btn-block btn-lg" style="margin-top: 5px"><i class="fa-solid fa-database"></i>Submit</button>
-        </div>
-        <div class="col-md-4">
-             <a href="{% url 'list_of_authors' %}" class="btn btn-secondary btn-block btn-lg">
-                <i class="fas fa-stream"></i> View Authors
-             </a>
-        </div>
-    </div>
-</form>
+    .field{
+    color: #E3F9A6;
+    font-family: bolder;
+    font-size: 20px;
+    margin: 2rem;
+    width: fit-content
+block-size: fit-content
+    }
+
+    .card{
+     position: relative;
+    top: 20%;
+    left: 10px;
+    margin-top: 10px;
+    background-color: #306754;
+    border: solid;
+    border-color: white;
+    box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+    }
+    .buttons{
+    margin: 2rem 5rem;
+    }
+</style>
+<br>
+<div class="articles" style="background-color: #2C3539; ">
+   <form action="" method="post">
+       {% csrf_token %}
+       <div class="container">
+           <div style="display: flex; justify-content: space-around">
+               <div class="col-md-4">
+                   <a href="{% url 'list_of_books' %}">
+                   <svg style="color: yellow" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                       <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+                   </svg>
+                   </a>
+               </div>
+                <h3 style="text-align: center; color: white">Register Author</h3>
+           </div>
+           <div class="card">
+               <div class="field">
+                   <p><b> {{form.first_name.label}}:</b></p>
+                   <p style=""> </p> {{form.first_name}}
+               </div>
+               <div class="field">
+                   <p> <b>{{form.last_name.label}}: </b></p>
+                   {{form.last_name}}
+               </div>
+           </div>
+       </div>
+       <div class="buttons">
+           <a href="{% url 'list_of_authors' %}"><button type="submit" style="background-color: yellow; width: 10rem">Submit</button></a>
+           <a href="{% url 'list_of_authors' %}"><button type="button" style="background-color: brown; width: 7rem; ">Cancel</button></a>
+       </div>
+   </form>
+</div>
+
 {% endblock %}

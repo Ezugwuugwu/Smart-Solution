@@ -32,6 +32,7 @@ def books_form(request, id=0):
             form.save()
             return redirect('/books/list')
 
+
 @csrf_exempt
 @requires_csrf_token
 def books_delete(request, id):
@@ -64,6 +65,7 @@ def author_form(request, id=0):
         if authorForm.is_valid():
             authorForm.save()
             return redirect('/authors/authorlist')
+
 
 @csrf_exempt
 @requires_csrf_token

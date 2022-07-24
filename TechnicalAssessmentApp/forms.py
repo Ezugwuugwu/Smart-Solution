@@ -1,18 +1,15 @@
 from django import forms
 
-from .models import Book
+from .models import Book, Author
 
 
 class Booksform(forms.ModelForm):
     class Meta:
         model = Book
-        fields = '__all__'
-
-        # u can also do
-        # fields = ('Book name', 'isbn', 'author'), just to select fields
+        fields = ['book_name', 'isbn', 'author']
 
 
 class Authorform(forms.ModelForm):
     class Meta:
-        model = Book
-        fields = '__all__'
+        model = Author
+        fields = ['first_name', 'last_name']
