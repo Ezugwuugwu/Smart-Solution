@@ -34,7 +34,6 @@
                 <a href="{{ book.id }}">
                     <td>{{book.book_name}}</td>
                 </a>
-
             <td>
                 <a href="{% url 'book_update' book.id %}" class="btn text-secondary px-0">
                     <i style="color: black" class="far fa-edit fa-lg "></i>
@@ -47,18 +46,14 @@
                 </form>
             </td>
             </tr>
-
         {% endfor %}
     </tbody>
-
-
      <tbody>
         {% for book in project %}
-            <tr class="man" >
-                <a href="{{ book.id }}">
-                    {{book.book_name}}
-                </a>
-
+        <tr class="man" >
+            <a href="{{ book.id }}">
+                {{book.book_name}}
+            </a>
             <td>
                 <a href="{% url 'book_update' book.id %}" class="btn text-secondary px-0">
                     <i style="color: black" class="far fa-edit fa-lg "></i>
@@ -70,9 +65,8 @@
                     </button>
                 </form>
             </td>
-            </tr>
-
+        </tr>
         {% endfor %}
-    </tbody>
+     </tbody>
 </table>
 {% endblock %}

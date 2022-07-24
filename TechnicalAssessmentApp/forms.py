@@ -1,6 +1,7 @@
 from django import forms
 
 from .models import Book, Author
+from django.forms import MultiWidget, TextInput
 
 
 class Booksform(forms.ModelForm):
