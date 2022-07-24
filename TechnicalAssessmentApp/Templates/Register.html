@@ -36,6 +36,7 @@ block-size: fit-content
     }
     .buttons{
     margin: 2rem 5rem;
+    display: flex;
     }
 </style>
 <br>
@@ -69,7 +70,7 @@ block-size: fit-content
            </div>
        </div>
        <div class="buttons">
-           <a href="{% url 'list_of_books' %}"><button type="submit" style="background-color: yellow; width: 10rem">Submit</button></a>
+           <a href="{% url 'list_of_books' %}"><button type="submit" style="background-color: green; width: 10rem">Submit</button></a>
            <a href="{% url 'list_of_books' %}"><button type="button" style="background-color: brown; width: 7rem; ">Cancel</button></a>
        </div>
    </form>
