@@ -16,7 +16,7 @@
 <table class="table table-borderless">
     <thead class="border-bottom font-weight-bold">
         <tr style="color: blue">
-            <h1 class="display-4">Books Registration Portal</h1>
+            <h1 class="display-4">Book Registration Portal</h1>
             <div style="display: flex; justify-content: space-between">
                  <a style="background-color: green; color: white" href="{% url 'book_register' %}" class="btn btn btn-outline-success">
                     <i class="fas fa-plus"></i> Register new Book
@@ -31,42 +31,44 @@
     <tbody>
         {% for book in list_of_books %}
             <tr class="man" >
-                <a href="{{ book.id }}">
-                    <td>{{book.book_name}}</td>
-                </a>
-            <td>
-                <a href="{% url 'book_update' book.id %}" class="btn text-secondary px-0">
-                    <i style="color: black" class="far fa-edit fa-lg "></i>
-                </a>
-                <form action="{% url 'book_delete' book.id %}" method="post" class="d-inline">
-                    {% csrf_token %}
-                    <button type="submit" class="btn">
-                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
-                    </button>
-                </form>
-            </td>
+                <td>
+                    <a style="color: white" href="{% url 'retrieve_project' book.id %}">
+                        {{book.book_name}}
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'book_update' book.id %}" class="btn text-secondary px-0">
+                        <i style="color: black" class="far fa-edit fa-lg "></i>
+                    </a>
+                    <form action="{% url 'book_delete' book.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </tbody>
-     <tbody>
-        {% for book in project %}
-        <tr class="man" >
-            <a href="{{ book.id }}">
-                {{book.book_name}}
+    <tbody>
+    {% for book in project %}
+    <tr class="man" >
+        <a href="{{ book.id }}">
+            {{book.book_name}}
+        </a>
+        <td>
+            <a href="{% url 'book_update' book.id %}" class="btn text-secondary px-0">
+                <i style="color: black" class="far fa-edit fa-lg "></i>
             </a>
-            <td>
-                <a href="{% url 'book_update' book.id %}" class="btn text-secondary px-0">
-                    <i style="color: black" class="far fa-edit fa-lg "></i>
-                </a>
-                <form action="{% url 'book_delete' book.id %}" method="post" class="d-inline">
-                    {% csrf_token %}
-                    <button type="submit" class="btn">
-                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
-                    </button>
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-     </tbody>
+            <form action="{% url 'book_delete' book.id %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn">
+                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                </button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
 </table>
 {% endblock %}

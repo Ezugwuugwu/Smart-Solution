@@ -3,35 +3,26 @@
 {% block page_content %}
 <div class="container">
     <div class="row my-5"; >
-{% if project %}
-        <div class="col-md-6" >
-            <img style=" height: 200px" src="{{ project.book_name}}" alt="project Image">
-        </div>
-        <div class="col-md-6" style="
-                    column-count: 3;
-                    -webkit-column-count: 3;
-                    -moz-column-count: 3;
-                    column-gap: 50px;
-                    -webkit-column-gap: 50px;
-                    -moz-column-gap: 50px;
-                    column-rule: 12px double #000000;
-                    -webkit-column-rule: 12px double #000000;
-                    -moz-column-rule: 12px double #000000; ">
+        {% if project %}
+        <div class="col-md-6" style="margin-bottom: 2rem;">
             <h4>Details:</h4>
-            <small>{{project.book_name}</small>
+            <p><b>Author's Name:</b> {{project.author}}</p>
         </div>
         <div class="col-md-6" style="text-align: center; width: 2000px; background-color: pink
                  box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);
                 -webkit-box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);
                 -moz-box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);">
-            <h3>More Details</h3>
-            <p> <b>Book ISBN:</b>{{project.book_name}} </p>
-            <p> <b>Item Title:</b> {{project.isbn}} </p>
-            <p><b>Author's ID:</b> {{project.author}}</p>
+            <h3 style="color: white;">More Details</h3>
+            <p> <b>Book Name:</b>{{project.book_name}} </p>
+            <p> <b>ISBN:</b> {{project.isbn}} </p>
+            <p><b>Author's Name:</b> {{project.author}}</p>
         </div>
         {% else %}
         <h1>Nothing to Display</h1>
         {% endif %}
     </div><br>
+    <div class="buttons">
+        <a href="{% url 'list_of_books' %}"><button type="button" style="background-color: gray; color: white; width: 5rem; ">Back</button></a>
+    </div>
 </div>
 {% endblock %}

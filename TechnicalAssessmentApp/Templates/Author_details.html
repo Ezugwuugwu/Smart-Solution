@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row my-5">
+        {% if author_details %}
+        <div class="col-md-6" style="
+                    column-count: 3;
+                    -webkit-column-count: 3;
+                    -moz-column-count: 3;
+                    column-gap: 50px;
+                    -webkit-column-gap: 50px;
+                    -moz-column-gap: 50px;
+                    column-rule: 12px double #000000;
+                    -webkit-column-rule: 12px double #000000;
+                    -moz-column-rule: 12px double #000000; margin-bottom: 2rem;">
+            <h4>Details:</h4>
+            <p><b>Author's Name:</b> {{author_details.first_name}}</p>
+        </div>
+        <div class="col-md-6" style="text-align: center; width: 2000px; background-color: pink
+                 box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);
+                -webkit-box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);
+                -moz-box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);">
+            <h3 style="color: white;">More Details</h3>
+            <p> <b>Author's First Name</b>: {{author_details.first_name}} </p>
+            <p> <b>Author's Last Name</b>: {{author_details.last_name}} </p>
+            <p> <b>Author's ID</b>: {{author_details.id}} </p>
+        </div>
+        {% else %}
+        <h1>Nothing to Display</h1>
+        {% endif %}
+    </div><br>
+    <div class="buttons">
+        <a href="{% url 'list_of_authors' %}"><button type="button" style="background-color: gray;color: white; width: 5rem; ">Back</button></a>
+    </div>
+</div>
+{% endblock %}

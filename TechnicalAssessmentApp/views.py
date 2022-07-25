@@ -81,3 +81,11 @@ def retrieve_project(request, id):
     else:
         project = {}
     return render(request, "Book_details.html", {'project': project})
+
+
+def retrieve_author_project(request, id):
+    if Author.objects.filter(pk=id).exists():
+        project = Author.objects.get(pk=id)
+    else:
+        project = {}
+    return render(request, "Author_details.html", {'author_details': project})

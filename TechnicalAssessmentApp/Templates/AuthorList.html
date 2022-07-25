@@ -17,22 +17,26 @@
         </tr>
     </thead>
     <tbody>
-        {% for author in list_of_authors %}
-            <tr>
-                <td>{{author.first_name}}</td>
-                 <td>
-                    <a href="{% url 'author_update' author.id %}" class="btn text-secondary px-0">
-                        <i style="color: black" class="far fa-edit fa-lg "></i>
-                    </a>
-                    <form action=" {% url 'author_delete' author.id %}" method="post" class="d-inline">
-                        {% csrf_token %}
-                        <button type="submit" class="btn">
-                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
-                        </button>
-                    </form>
-                </td>
-            </tr>
-        {% endfor %}
+    {% for author in list_of_authors %}
+    <tr>
+        <td>
+            <a style="color: white" href="{% url 'retrieve_author_details' author.id %}">
+                {{author.first_name}}
+            </a>
+        </td>
+        <td>
+            <a href="{% url 'author_update' author.id %}" class="btn text-secondary px-0">
+                <i style="color: black" class="far fa-edit fa-lg "></i>
+            </a>
+            <form action=" {% url 'author_delete' author.id %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn">
+                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                </button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
     </tbody>
 </table>
 {% endblock %}
